@@ -3,7 +3,7 @@ from Gombak_oszt import jatekosok
 gomba = []
 
 
-def beolvas(fajlnev):
+def beolvas(fajlnev, gomba):
     fajlom = open(fajlnev, "r", encoding='UTF-8')
     fejlec = fajlom.readline().strip()
     sorok = fajlom.readlines()
@@ -13,22 +13,19 @@ def beolvas(fajlnev):
         gomba.append(jatekosok(sor))
         i += 1
     fajlom.close()
-    print("III/A,B")
-    print(f"\tA gombák száma: {gombak_szama()}")
-    print("III/C")
-    print(f"\tAz első papsapkagomba neve: {gomba[papsapka()].neve}")
-    print("III/D")
-    print(f"\tA tinóru gombák száma: {tinoru()}")
 
-def gombak_szama():
+    return gomba
+
+def gombak_szama(gomba):
     i = 0
     db = 0
     while i < len(gomba):
         db += 1
         i +=1
-    return db
+    print("III/A,B")
+    print(f"\tA gombák száma: {db}")
 
-def papsapka():
+def papsapka(gomba):
     i = 0
     elso = 0
     while i < len(gomba):
@@ -36,14 +33,17 @@ def papsapka():
             elso = i
             i = len(gomba)-1
         i += 1
-    return elso
+    print("III/C")
+    print(f"\tAz első papsapkagomba neve: {gomba[elso].neve}")
 
 
-def tinoru():
+
+def tinoru(gomba):
     i = 0
     db_tinoru = 0
     while i < len(gomba):
         if gomba[i].nemzettseg == "tinóru":
             db_tinoru += 1
         i += 1
-    return db_tinoru
+    print("III/D")
+    print(f"\tA tinóru gombák száma: {db_tinoru}")

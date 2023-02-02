@@ -1,0 +1,3 @@
+	Első idős ember korának helye a listában: 1
+	Első idős ember korának helye a listában: 0
+	Első idős ember korának helye a listában: 0
